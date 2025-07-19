@@ -5,7 +5,7 @@ import onlylogo from "../../image/onlylogo.png";
 import { useAuth } from "../../context/AuthContext";
 
 const Header = () => {
-  const { isAuthenticated, loading } = useAuth();
+  const { isAuthenticated, loading, user } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -161,7 +161,7 @@ const Header = () => {
             </div>
             <Link
               to="/donate"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
+              className="px-4 py-2 rounded-lg bg-indigo-100 hover:bg-indigo-200 hover:text-indigo-700 text-indigo-700 font-semibold transition-colors duration-200"
             >
               Donate Now
             </Link>
@@ -172,15 +172,15 @@ const Header = () => {
               <div className="hidden lg:flex items-center space-x-4">
                 <Link
                   to="/community"
-                  className="bg-gradient-to-r hover:text-white from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
+                  className="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-700 hover:text-white text-white font-semibold transition-colors duration-200"
                 >
                   Community
                 </Link>
                 <Link
-                  to="/donate"
-                  className="bg-gradient-to-r  hover:text-white from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
+                  to={`/${user?.user?.role}-home`}
+                  className="px-4 py-2 rounded-lg bg-indigo-100 hover:bg-indigo-200 hover:text-indigo-700 text-indigo-700 font-semibold transition-colors duration-200"
                 >
-                  Donate Now
+                  Go to Home
                 </Link>
               </div>
             </>}
@@ -295,15 +295,15 @@ const Header = () => {
                 <><div className="flex items-center space-x-4">
                   <Link
                     to="/community"
-                    className="bg-gradient-to-r hover:text-white from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
+                    className="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-700 hover:text-white text-white font-semibold transition-colors duration-200"
                   >
                     Community
                   </Link>
                   <Link
-                    to="/donate"
-                    className="bg-gradient-to-r  hover:text-white from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium"
+                    to={`/${user?.user?.role}-home`}
+                    className="px-4 py-2 rounded-lg bg-indigo-100 hover:bg-indigo-200 hover:text-indigo-700 text-indigo-700 font-semibold transition-colors duration-200"
                   >
-                    Donate Now
+                    Go to Home
                   </Link>
                 </div></>
               }

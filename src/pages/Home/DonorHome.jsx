@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Footer from '../../components/LandingPage/Footer';
 import FilterNgo from '../../components/FilterNgo';
@@ -401,10 +401,10 @@ const DonorHome = () => {
       <header className="bg-white py-3 border-b-[1px] border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center space-x-4">
+                        <Link to={'/'} className="flex items-center space-x-4">
                             <img src="https://res.cloudinary.com/dglwzejwk/image/upload/v1750157677/logoblack_ly0mlm.png" alt="Kindify Logo" className='h-8' />
                             <span className="text-md rounded-lg text-gray-600 px-3 py-1 bg-gray-100"> Donor <span className='text-indigo-500 font-semibold capitalize ml-3'>{user?.user?.name}</span> </span>
-                        </div>
+                        </Link>
                         <div className="flex items-center space-x-4">
                             <button
                                 onClick={() => navigate('/donor-dashboard')}
@@ -423,7 +423,7 @@ const DonorHome = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold mb-2">
-                Welcome back, {user?.name || 'Donor'} 👋
+                Welcome back, {user?.user?.name || 'Donor'} 👋
               </h1>
               <p className="text-blue-100 text-lg">
                 Discover amazing causes and make a real impact today

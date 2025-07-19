@@ -24,7 +24,7 @@ const FilteredNgoDisplay = () => {
       ) {
         const cardWidth = cardRef.current.offsetWidth;
         const containerWidth = containerRef.current.offsetWidth;
-        const totalWidth = displayedNgos.length * cardWidth + GAP * (displayedNgos.length - 1);
+        const totalWidth = displayedNgos.length * (cardWidth + GAP);
         const scrollLimit = containerWidth >= totalWidth ? 0 : -(totalWidth - containerWidth);
         setMaxScroll(scrollLimit);
       }
@@ -46,7 +46,7 @@ const FilteredNgoDisplay = () => {
     const cardWidth = cardRef.current.offsetWidth + GAP;
     const shift = cardWidth * 1.5;
 
-    let newX = dir === 'left' ? x + shift : x - shift;
+    let newX = dir === 'left' ? x + shift : x - shift ;
     if (newX > 0) newX = 0;
     if (newX < maxScroll) newX = maxScroll;
     setX(newX);
@@ -98,7 +98,7 @@ const FilteredNgoDisplay = () => {
         </div>
 
         {/* Scrollable Container */}
-        <div ref={containerRef} className="overflow-hidden py-4 px-2 bg-gray-50 rounded-lg">
+        <div ref={containerRef} className="overflow-hidden py-4 px-2 pr-4 bg-gray-50 rounded-lg">
           <motion.div
             className="flex gap-4"
             animate={{ x }}

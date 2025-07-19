@@ -98,13 +98,13 @@ const NGOProfile = ({ ngo }) => {
                 </div>
                 <div className="col-span-full">
                     <p className="text-sm font-medium">Address</p>
-                    <p>
-                        {[ngo.address.street, ngo.address.district, ngo.address.city, ngo.address.state, ngo.address.postalCode, ngo.address.country].filter(Boolean).join(", ")}
+                    <p className="capitalize">
+                        {[ngo.address.street, ngo.address.district, ngo.address.city, ngo.address.state, "PIN - " + ngo.address.postalCode, ngo.address.country].filter(Boolean).join(", ")}
                     </p>
                 </div>
                 <div className="col-span-full">
                     <p className="text-sm font-medium">Website</p>
-                    <p><a href={ngo.website} className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">{ngo.website}</a></p>
+                    <p>{ngo.website ? <a href={ngo.website} className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">{ngo.website}</a> : "N/A"}</p>
                 </div>
             </div>
 

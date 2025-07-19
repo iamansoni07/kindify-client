@@ -8,10 +8,10 @@ const NgoShortCard = ({ data }) => (
       className="w-full h-40 object-cover rounded-lg mb-4 border"
     />
 
-    <Link to={`/ngo/${data.userObjectId}`} className="text-xl capitalize font-semibold hover:text-blue-500 hover:underline text-gray-800 truncate mb-1">{data.name}</Link>
+    <Link to={`/ngo/${data.userObjectId}`} className="text-xl capitalize text-wrap font-semibold hover:text-blue-500 hover:underline text-gray-800 truncate mb-1">{data.name}{data?.isVerified && <i className="fi fi-sr-shield-trust ml-1  text-blue-500"></i>}</Link>
 
     <p className="text-sm text-gray-500 mb-3 flex items-center mt-1">
-      <i className="fi fi-ss-marker mr-2 mt-1"></i> {data.address.city}, {data.address.state}
+      <i className="fi fi-ss-marker mr-2 mt-1"></i> {data.address.state}, {data.address.country}
     </p>
 
     <div className="flex flex-wrap gap-2 mb-3">
